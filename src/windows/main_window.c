@@ -7,7 +7,6 @@ static int s_hours, s_minutes;
 
 static void layer_update_proc(Layer *layer, GContext *ctx) {
   GRect bounds = layer_get_bounds(layer);
-  GPoint center = grect_center_point(&bounds);
 
   // 12 hours only, with a minimum size
   s_hours -= (s_hours > 12) ? 12 : 0;
