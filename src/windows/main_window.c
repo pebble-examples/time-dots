@@ -7,12 +7,12 @@ static int s_hours, s_minutes;
 
 static int32_t get_angle_for_hour(int hour) {
   // Progress through 12 hours, out of 360 degrees
-  return (int)(((float)hour / 12.0F) * 360.0F);
+  return (hour * 360) / 12;
 }
 
 static int32_t get_angle_for_minute(int minute) {
   // Progress through 60 minutes, out of 360 degrees
-  return (int)(((float)minute / 60.0F) * 360.0F);
+  return (minute * 360) / 60;
 }
 
 static void layer_update_proc(Layer *layer, GContext *ctx) {
