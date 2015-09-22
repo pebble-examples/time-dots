@@ -12,7 +12,9 @@ static void init() {
   tick_timer_service_subscribe(SECOND_UNIT, tick_handler);
 }
 
-static void deinit() { }
+static void deinit() { 
+  tick_timer_service_unsubscribe();
+}
 
 int main() {
   init();
