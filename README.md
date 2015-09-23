@@ -1,2 +1,6 @@
-# time-dots-dev
-Private repo for an example S4 watchface
+# time-dot
+
+![screenshot](screenshot.png)
+
+Example watchface for Pebble Time Round showing the hours and minutes as a bar
+and dots.
