@@ -24,21 +24,17 @@ static void layer_update_proc(Layer *layer, GContext *ctx) {
   // Minutes are expanding circle arc
   int radius = MINUTES_RADIUS;
   int minute_angle = get_angle_for_minute(s_minutes);
-  GRect frame = GRect((bounds.size.w / 2) - radius, (bounds.size.h / 2) - radius, 
-                      2 * radius, 2 * radius);
+  GRect frame = grect_inset(bounds, GEdgeInsets(10));
   graphics_context_set_fill_color(ctx, MINUTES_COLOR);
-  graphics_fill_radial(ctx, frame, GOvalScaleModeFillCircle, 20, 0, DEG_TO_TRIGANGLE(minute_angle));
+  graphics_fill_radial(ctx, frame, GOvalScaleModeFitCircle, 20, 0, DEG_TO_TRIGANGLE(minute_angle));
 
   // Adjust geometry variables for inner ring
-  frame.origin.x += 3 * HOURS_RADIUS;
-  frame.origin.y += 3 * HOURS_RADIUS;
-  frame.size.w -= 6 * HOURS_RADIUS;
-  frame.size.h -= 6 * HOURS_RADIUS;
+  frame = grect_inset(frame, GEdgeInsets(3 * HOURS_RADIUS));
 
   // Hours are dots
   for(int i = 0; i < 12; i++) {
     int hour_angle = get_angle_for_hour(i);
-    GPoint pos = gpoint_from_polar(frame, GOvalScaleModeFillCircle, DEG_TO_TRIGANGLE(hour_angle));
+    GPoint pos = gpoint_from_polar(frame, GOvalScaleModeFitCircle, DEG_TO_TRIGANGLE(hour_angle));
 
     graphics_context_set_fill_color(ctx, i <= s_hours ? HOURS_COLOR : HOURS_COLOR_INACTIVE);
     graphics_fill_circle(ctx, pos, HOURS_RADIUS);
