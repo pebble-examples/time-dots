@@ -1,4 +1,4 @@
-# time-dot
+# time-dots
 
 ![screenshot](screenshot.png)
 
