@@ -7,5 +7,5 @@
 #define HOURS_COLOR_INACTIVE GColorBlack
 #define BG_COLOR GColorDukeBlue
 
-#define MINUTES_RADIUS 80
+#define MINUTES_RADIUS PBL_IF_ROUND_ELSE(80, 60)
 #define HOURS_RADIUS 3
