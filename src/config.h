@@ -9,4 +9,4 @@
 
 #define MINUTES_RADIUS PBL_IF_ROUND_ELSE(60, 60)
 #define HOURS_RADIUS 3
-#define INSET 5
+#define INSET PBL_IF_ROUND_ELSE(5, 3)
