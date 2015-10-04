@@ -9,7 +9,7 @@ static void tick_handler(struct tm *time_now, TimeUnits changed) {
 static void init() {
   main_window_push();
 
-  tick_timer_service_subscribe(SECOND_UNIT, tick_handler);
+  tick_timer_service_subscribe(MINUTE_UNIT, tick_handler);
 }
 
 static void deinit() { 
