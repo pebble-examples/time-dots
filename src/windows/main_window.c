@@ -22,9 +22,8 @@ static void layer_update_proc(Layer *layer, GContext *ctx) {
   s_hours -= (s_hours > 12) ? 12 : 0;
 
   // Minutes are expanding circle arc
-  int radius = MINUTES_RADIUS;
   int minute_angle = get_angle_for_minute(s_minutes);
-  GRect frame = grect_inset(bounds, GEdgeInsets(10));
+  GRect frame = grect_inset(bounds, GEdgeInsets(4 * INSET));
   graphics_context_set_fill_color(ctx, MINUTES_COLOR);
   graphics_fill_radial(ctx, frame, GOvalScaleModeFitCircle, 20, 0, DEG_TO_TRIGANGLE(minute_angle));
 
