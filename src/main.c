@@ -3,7 +3,8 @@
 #include "windows/main_window.h"
 
 static void tick_handler(struct tm *time_now, TimeUnits changed) {
-  main_window_update(time_now->tm_hour, time_now->tm_min);
+  // main_window_update(time_now->tm_hour, time_now->tm_min);
+  main_window_update(14, 23);
 }
 
 static void init() {
@@ -12,7 +13,7 @@ static void init() {
   tick_timer_service_subscribe(MINUTE_UNIT, tick_handler);
 }
 
-static void deinit() { 
+static void deinit() {
   tick_timer_service_unsubscribe();
 }
 
