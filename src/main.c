@@ -12,7 +12,7 @@ static void init() {
   tick_timer_service_subscribe(MINUTE_UNIT, tick_handler);
 }
 
-static void deinit() { 
+static void deinit() {
   tick_timer_service_unsubscribe();
 }
 
